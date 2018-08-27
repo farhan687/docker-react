@@ -4,7 +4,7 @@ services:
 
 before_install:
   - gem install bundler
-  - docker build -t farhan687/reactapp -f dev.Dockerfile .
+  - docker build -t reactapp -f dev.Dockerfile .
 
-scrpit:
-  - docker run farhan687/reactapp npm run test -- --coverage
+script:
+  - docker run reactapp npm run test -- --coverage
