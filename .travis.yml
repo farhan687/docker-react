@@ -1,9 +1,18 @@
 sudo: required
+
+language: ruby
+
 services:
 - docker
+
 before_install:
-  - echo $KEY
-# - gem install bundler
+  - echo "Testing Docker Hub credentials"
+  - echo key1 --- "$KEY"
+  - echo key2 --- $KEY
+  - echo key3 --- ${KEY}
+  - echo key4 --- "${KEY}"
+
+  # - gem install bundler
 # - docker build -t reactapp -f dev.Dockerfile .
 # script:
 # - docker run reactapp npm run test -- --coverage
