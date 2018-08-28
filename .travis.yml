@@ -16,7 +16,7 @@ deploy:
   provider: elasticbeanstalk
   region: us-east-2
   app: react
-  end: React-env
+  env: React-env
   bucket_name: elasticbeanstalk-us-east-2-416297931845
   bucker_path: react
   on:
