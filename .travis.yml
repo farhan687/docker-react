@@ -3,28 +3,24 @@ sudo: required
 language: ruby
 
 services:
-- docker
+  - docker
 
 before_install:
-  - echo "Testing Docker Hub credentials"
-  - echo key1 --- "$KEY"
-  - echo key2 --- $KEY
-  - echo key3 --- ${KEY}
-  - echo key4 --- "${KEY}"
+  - gem install bundler
+  - docker build -t reactapp -f dev.Dockerfile .
 
-  # - gem install bundler
-# - docker build -t reactapp -f dev.Dockerfile .
-# script:
-# - docker run reactapp npm run test -- --coverage
-# deploy:
-#   provider: elasticbeanstalk
-#   region: us-east-2
-#   app: react
-#   end: React-env
-#   bucket_name: elasticbeanstalk-us-east-2-416297931845
-#   bucker_path: react
-#   on:
-#     branch: dev
-#   access_key_id: $ID
-#   secret_access_key:
-#     secure: $KEY
+script:
+  - docker run reactapp npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: react
+  end: React-env
+  bucket_name: elasticbeanstalk-us-east-2-416297931845
+  bucker_path: react
+  on:
+    branch: dev
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
