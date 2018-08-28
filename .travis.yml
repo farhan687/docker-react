@@ -2,23 +2,20 @@ sudo: required
 services:
 - docker
 before_install:
-- gem install bundler
-- docker build -t reactapp -f dev.Dockerfile .
-script:
-- docker run reactapp npm run test -- --coverage
-deploy:
-  provider: elasticbeanstalk
-  region: us-east-2
-  app: react
-  end: React-env
-  bucket_name: elasticbeanstalk-us-east-2-416297931845
-  bucker_path: react
-  on:
-    branch: dev
-  access_key_id: "$AWS_ACCESS_KEY"
-  secret_access_key:
-    secure: "$AWS_SECRET_KEY"
-env:
-  global:
-  - AWS_ACCESS_KEY: JsT2HGhyUGzxmv4cu3coemNFXMlMcTKZAE1XhjrFMuryucQvL13ZfrtoFjMFkmTXfMmOOc3qYWDqOgDOR8qJY1hAZPh1/qIa1x5tntDINE5541BIJJ0a6rmVW8gGLOS0bvlKz9YSiPigMlXbHWBIO6b9Fi1AFAyxD8+OROK5KCAEZFhGPMQ9VKGxo7cRkrfsto6WuRAwCQafiW190NOjlo3AfMKyk4L//hEN4wm4GdurE46IeyU7LdTOdggBvc3MwpokvXIGNCPECkBTH2VT0tfg/bXltT0JrsA53pSB8Wsdf0sk8Qkpz34GSEJcRh9luE5dVT+/2RU4Ymg0+fR2ymTurSn2TcnPg3TZoleQ8QCRSYhuaDZgEHSliXRD/Vo+7XS8v+tEyJMGgBRA7dvK5ZGRGfVL9HmnMlCoACnuL3eUlmA5ibuA8nQo6/80axw3Q2oloKihQGXHC8cpqWeU81PlJg6RSnL7mLJ4jgn60BGZt8xW8gSJS+WvBlrgcCV0UPjQw3ARfMEVvrc8N1kpXUti8FQgyIommFdG5m6qRrJ/DbKfeGoigw1P3JHeaTaNoLz4rw8qdRNCOE7I/qZ/KYLDSi5rktMqkWWv0eJxt4MUZasE9s5gLZiKUeIDirevibo+rHge6ILXjkyjO4cKmPrG+pWpEd0AmksK0/T2wII=
-  - AWS_SECRET_KEY: g5alOtJwvkUYtEcEXtVbT+KnNVzlfdWqZcXa/TjEFWcRb28r3G2yGDgGK3byWGo4UlAcP3WLpykA4gJrMtljK5fBZ5vtDfdS2unEZlWZNYcz+tNSrXdLPBv/ivheqnNxBKcJHCclsGeyFOmCuK6Hp/11jm7l5Eo5Om+zpWMqXA0zNQ6KgD/miVP3BtM3V+0pP0F8i73kX2kd2sVH8+eBCNa5rtAOC/I2kNZSLTpxnPR0owYY+JRYrLmZ2v1KqWDNiKtrIL1Uyxb1/VJL9eybxLDCXYocnlkSq+IBgPm6oSHJaa6l30l086htIdRo9Cm2XBVAg+6taBErVrMA/8oi1sIxLIt1Lp5ozJ2WovBbdJhIBQxNX7AnWNp/tT7KFTZURMNMJnbGWMjdTEMCIvEs8Uh+YMnrv9iS38WcdOsqSK61yXncu6zBQM63QKrJA1w/meiX4vxaOHtuq7rwj43lqap1KF/z+9lBoxPhkwq+T4U+HSLcf1/oOwJm36OcjfipY3Q+1ETtSdyG1YmDlb38re76kd+x/RHvyQbXPgpY4gEpShOzuDvir4Xy5rrUXNGgb4sHCs2Smn8HSGtmqhcl/5Ymk2BHpTbMddnC6wpE1NjM0IAZFBsJ51YC2QNtBxXyXP9nHRQ4czrvbFo3NL/9ncZ9pHqimcuMefV6wgXGcpY=
+  - echo $KEY
+# - gem install bundler
+# - docker build -t reactapp -f dev.Dockerfile .
+# script:
+# - docker run reactapp npm run test -- --coverage
+# deploy:
+#   provider: elasticbeanstalk
+#   region: us-east-2
+#   app: react
+#   end: React-env
+#   bucket_name: elasticbeanstalk-us-east-2-416297931845
+#   bucker_path: react
+#   on:
+#     branch: dev
+#   access_key_id: $ID
+#   secret_access_key:
+#     secure: $KEY
